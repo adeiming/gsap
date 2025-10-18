@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+    --font-tit: 'Saira'
+}
+
+@layer base {
+    body {
+        @apply bg-gray-100 font-tit;
+    }
+}
+
+@layer utilities {
+    .a {
+        @apply text-red-500;
+    }
+}
