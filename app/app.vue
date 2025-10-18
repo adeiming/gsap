@@ -70,10 +70,12 @@ onMounted(async () => {
         }, '<0.5')
         .fromTo("._botol", {
             top: '55%',
-            right: '-10rem',
+            left: '100%',
+            xPercent: -30,
             rotate: -10
         }, {
-            right: 0,
+            left: '100%',
+            xPercent: -90,
             opacity: 1,
             rotate: 0
         }, '<')
@@ -95,7 +97,8 @@ onMounted(async () => {
             rotate: 5,
         })
         .to("._botol", {
-            right: '-10rem'
+            left: '100%',
+            xPercent: -50
         }, '<0.5')
 
     gsap.timeline({
@@ -150,10 +153,8 @@ onMounted(async () => {
         opacity: 0
     })
     .to('._botol', {
-        right: '35%',
-    })
-    .to('._botol', {
-        right: '45%',
+        left: '50%',
+        xPercent: -50,
         rotate: 0,
         filter: 'saturate(200%)',
         onComplete: () => botol.play(),
@@ -165,7 +166,7 @@ onMounted(async () => {
 <template>
     <div class="backdrop-blur-lg fixed inset-0 z-20 bg-white/10" v-if="loader"></div>
     <img src="/botol.png" class="_botol size-60 fixed invisible z-0 saturate-100" />
-    <div class="bg-amber-50 min-h-screen">
+    <div class="bg-amber-50 min-h-screen overflow-hidden">
         <header
             class="bg-amber-400/70 backdrop-blur flex gap-2 font-semibold text-amber-900 py-2 shadow-lg justify-between p-0 sm:px-10 top-0 z-10 sticky overflow-hidden">
             <div class="p-2 _logo">SOHO</div>
