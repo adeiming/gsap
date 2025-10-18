@@ -177,7 +177,7 @@ onMounted(async () => {
             </nav>
         </header>
         <UContainer>
-            <main class="text-lg pb-10">
+            <main class="text-lg pb-10 text-black">
                 <section class="min-h-screen gap-2 flex justify-center items-center flex-col bg-amber-50 text-shadow-lg overflow-hidden" id="_a">
                     <h1 class="_a font-semibold text-7xl sm:text-9xl text-center text-amber-600">
                         Makan Malam
