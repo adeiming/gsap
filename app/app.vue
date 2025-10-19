@@ -210,7 +210,7 @@ onMounted(async () => {
                     <div class="sticky top-18 flex z-2">
                         <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Kontak</h1>
                     </div>
-                    <div class="absolute inset-0 flex justify-center items-center p-10 z-10 text-center _b3">
+                    <div class="absolute inset-0 flex justify-center items-center p-10 z-1 text-center _b3">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
                         repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
                         reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
