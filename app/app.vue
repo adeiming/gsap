@@ -2,9 +2,10 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { Flip } from "gsap/Flip";
 
 const loader = ref(true)
+let smooth = null
+
 useHead({
     title: 'GSAP',
 })
@@ -12,11 +13,12 @@ onMounted(async () => {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     await nextTick()
 
-    ScrollSmoother.create({
+    smooth = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
         smooth: 2,
-        smoothTouch: 0.1
+        smoothTouch: 0.1,
+        effects: true
     })
 
     loader.value = false
@@ -97,10 +99,6 @@ onMounted(async () => {
         .to("._botol", {
             rotate: -10
         })
-        .to("._b1", {
-            y: -100,
-            opacity: 0
-        })
         .to('.__botol', {
             xPercent: 100,
             rotate: 5,
@@ -113,9 +111,10 @@ onMounted(async () => {
     gsap.timeline({
         scrollTrigger: {
             trigger: '.__profil',
-            start: "top bottom",
+            start: "top center",
             end: "bottom center",
             scrub: 1,
+            markers: true
         }
     })
         .from('.__profil', {
@@ -123,12 +122,14 @@ onMounted(async () => {
             rotate: 5,
         })
         .from('._b2', {
-            y: -100,
+            y: 100,
             opacity: 0
         })
         .to('._b2', {
-            y: 100,
-            opacity: 0
+            y: 0,
+        })
+        .to('._b2', {
+            y: 0,
         })
         .to('.__profil', {
             xPercent: -200,
@@ -149,8 +150,9 @@ onMounted(async () => {
         scrollTrigger: {
             trigger: '.__kontak',
             start: "top center",
-            end: "20% center",
+            end: "center center",
             scrub: 1,
+            // markers: true
         }
     })
     .from('.__kontak', {
@@ -158,7 +160,7 @@ onMounted(async () => {
         xPercent: -100,
     })
     .from(`._b3`, {
-        yPercent: -10,
+        yPercent: 100,
         opacity: 0
     })
     .to('._botol', {
@@ -166,10 +168,19 @@ onMounted(async () => {
         xPercent: -50,
         rotate: 0,
         filter: 'saturate(200%)',
+        scale: .8,
         onComplete: () => botol.play(),
         onReverseComplete: () => botol.pause(),
     })
+
 });
+
+const navigate = (e) => {
+    e.preventDefault()
+    console.log(e.target.hash);
+
+    smooth.scrollTo(e.target.hash, true, '20% center');
+}
 </script>
 
 <template>
@@ -177,16 +188,16 @@ onMounted(async () => {
     <img src="/botol.png" class="_botol size-60 fixed invisible z-0 saturate-100" />
     <div class="bg-amber-50 min-h-screen" id="smooth-wrapper">
         <header class="bg-amber-400/70 backdrop-blur flex gap-2 font-semibold text-amber-900 py-2 shadow-lg justify-between p-0 sm:px-10 top-0 z-10 sticky">
-            <div class="p-2 _logo">SOHO</div>
+            <a href="#" class="p-2 _logo">SOHO</a>
             <nav class="flex">
-                <a href="#" class="_link p-2">Tentang</a>
-                <a href="#" class="_link p-2">Profil</a>
-                <a href="#" class="_link p-2">Kontak</a>
+                <a href="#tentang" @click="navigate" class="_link p-2">Tentang</a>
+                <a href="#profil" @click="navigate" class="_link p-2">Profil</a>
+                <a href="#kontak" @click="navigate" class="_link p-2">Kontak</a>
             </nav>
         </header>
         <div class="overflow-hidden" id="smooth-content">
-            <UContainer>
-                <main class="text-lg pb-10 text-black">
+            <UContainer class="pb-25">
+                <main class="text-lg text-black">
                     <section class="min-h-screen gap-2 flex justify-center items-center flex-col bg-amber-50 text-shadow-lg" id="_a">
                         <h1 class="_a font-semibold text-7xl sm:text-9xl text-center text-amber-600">
                             Makan Malam
@@ -196,35 +207,92 @@ onMounted(async () => {
                         </h2>
                         <img src="/baso.png" class="_a size-60" />
                     </section>
-                    <section class="min-h-screen bg-white rounded-xl relative overflow-hidden p-10 __botol">
-                        <div class="sticky top-18 flex z-2">
-                            <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Tentang</h1>
+                    <section class="bg-white rounded-xl relative overflow-hidden p-10 __botol" id="tentang">
+                        <div class="sticky top-1 flex z-2">
+                            <h1 class="text-xl font-semibold block bg-amber-600/20 backdrop-blur-lg text-amber-800 p-4">Tentang</h1>
                         </div>
-                        <div class="absolute inset-0 flex justify-center items-center p-10 text-center _b1">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
-                            repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
-                            reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
+                        <div class="text-center _b1">
+                            <div class="space-y-5 py-10 md:py-30">
+                                <p class="font-semibold text-xl">
+                                    “Kisah di Balik Meja Ini”
+                                </p>
+
+                                <div>
+                                    Malam, lampu redup, dan denting sendok di gelas —
+                                    begitulah semua ini dimulai.
+                                </div>
+
+                                <div>
+                                    Kami percaya, makanan punya cara sendiri untuk bercerita.
+                                    Bahwa setiap suapan bisa membawa kita ke masa lalu,
+                                    ke tawa yang dulu sederhana, ke momen yang dulu terasa utuh.
+                                </div>
+
+                                <div>
+                                    “Makan Malam Bersama Mantan” lahir dari ide sederhana:
+                                    bagaimana jika kenangan pahit dan manis bisa disatukan di atas meja yang sama,
+                                    bukan untuk membuka luka, tapi untuk menutupnya dengan senyum.
+                                </div>
+                            </div>
                         </div>
                     </section>
-                    <section class="min-h-screen bg-amber-100 rounded-xl relative overflow-hidden p-10 __profil">
-                        <div class="sticky top-18 flex z-2">
-                            <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Profil</h1>
+                    <section class="bg-amber-100 rounded-xl relative overflow-hidden p-10 __profil" id="profil">
+                        <div class="sticky top-1 flex z-2">
+                            <h1 class="text-xl font-semibold block bg-amber-600/20 backdrop-blur-lg text-amber-800 p-4">Profil</h1>
                         </div>
-                        <div class="absolute inset-0 flex justify-center items-center p-10 text-center z-1 _b2">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
-                            repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
-                            reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
+                        <div class="text-center z-1 _b2">
+                            <div class="space-y-5 py-10 md:py-30">
+                                <p class="font-semibold text-xl">
+                                    “Siapa di Balik Kisah Ini”
+                                </p>
+
+                                <p>
+                                    Kami adalah orang-orang yang percaya bahwa perpisahan bukan akhir,
+                                    dan bahwa kenangan bisa jadi sesuatu yang indah bila disajikan dengan hangat.
+                                </p>
+
+                                <p>
+                                    Di balik meja dan lilin, ada tim kecil yang mencintai suasana,
+                                    menghargai kenangan, dan memahami arti keheningan di antara dua orang yang pernah saling mencinta.
+                                </p>
+
+                                <p>
+                                    Kami bukan sekadar penyaji makanan,
+                                    kami perangkai suasana, pengantar rasa, dan pencipta momen yang tidak bisa dipesan ulang.
+                                </p>
+
+                            </div>
                         </div>
                     </section>
-                    <section class="min-h-screen bg-white rounded-xl relative overflow-hidden p-10 mb-10 __kontak">
-                        <div class="sticky top-18 flex z-2">
-                            <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Kontak</h1>
+                    <section class="bg-white rounded-xl relative overflow-hidden p-10 __kontak" id="kontak">
+                        <div class="sticky top-1 flex z-2">
+                            <h1 class="text-xl font-semibold block bg-amber-600/20 backdrop-blur-lg text-amber-800 p-4">Kontak</h1>
                         </div>
-                        <div class="absolute inset-0 flex justify-center items-center p-10 z-1 text-center _b3">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
-                            repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
-                            reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
+                        <div class="text-center z-1 _b3">
+                            <div class="space-y-5 py-10 md:py-30">
+                                <p class="font-semibold text-xl">
+                                    “Ingin Mengulang Cerita?”
+                                </p>
+
+                                <p>
+                                    Mungkin malam ini bukan untuk kembali,
+                                    tapi untuk berdamai dengan masa lalu.
+                                </p>
+
+                                <p>
+                                    Jika kamu ingin memesan meja, mengirim pesan, atau sekadar berbagi cerita —
+                                    kami selalu siap mendengarkan, dengan secangkir teh hangat dan lampu temaram yang menenangkan.
+                                </p>
+
+                                <p>
+                                    Hubungi kami, bukan untuk mengulang yang telah berlalu,
+                                    tapi untuk mengingat bahwa kenangan pun bisa disajikan dengan indah.
+                                </p>
+                            </div>
                         </div>
+                    </section>
+                    <section class="px-10 pt-30 pb-5 z-50 relative text-center font-bold">
+                        &nbsp; 2025 AZIMA CORP
                     </section>
                 </main>
             </UContainer>
