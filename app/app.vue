@@ -114,7 +114,6 @@ onMounted(async () => {
             start: "top center",
             end: "bottom center",
             scrub: 1,
-            markers: true
         }
     })
         .from('.__profil', {
@@ -123,7 +122,7 @@ onMounted(async () => {
         })
         .from('._b2', {
             y: 100,
-            opacity: 0
+            opacity: 0,
         })
         .to('._b2', {
             y: 0,
@@ -133,7 +132,7 @@ onMounted(async () => {
         })
         .to('.__profil', {
             xPercent: -200,
-            rotate: -5
+            rotate: -5,
         })
 
     const botol = gsap.timeline({
@@ -152,7 +151,6 @@ onMounted(async () => {
             start: "top center",
             end: "center center",
             scrub: 1,
-            // markers: true
         }
     })
     .from('.__kontak', {
@@ -177,9 +175,7 @@ onMounted(async () => {
 
 const navigate = (e) => {
     e.preventDefault()
-    console.log(e.target.hash);
-
-    smooth.scrollTo(e.target.hash, true, '20% center');
+    smooth.scrollTo(e.target.hash, true, 'top top');
 }
 </script>
 
@@ -188,7 +184,7 @@ const navigate = (e) => {
     <img src="/botol.png" class="_botol size-60 fixed invisible z-0 saturate-100" />
     <div class="bg-amber-50 min-h-screen" id="smooth-wrapper">
         <header class="bg-amber-400/70 backdrop-blur flex gap-2 font-semibold text-amber-900 py-2 shadow-lg justify-between p-0 sm:px-10 top-0 z-10 sticky">
-            <a href="#" class="p-2 _logo">SOHO</a>
+            <a href="#" class="p-2 _logo">AZIMA</a>
             <nav class="flex">
                 <a href="#tentang" @click="navigate" class="_link p-2">Tentang</a>
                 <a href="#profil" @click="navigate" class="_link p-2">Profil</a>
