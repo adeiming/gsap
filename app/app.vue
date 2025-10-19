@@ -175,48 +175,50 @@ onMounted(async () => {
                 <a href="#" class="_link p-2">Kontak</a>
             </nav>
         </header>
-        <UContainer class="overflow-hidden">
-            <main class="text-lg pb-10 text-black">
-                <section class="min-h-screen gap-2 flex justify-center items-center flex-col bg-amber-50 text-shadow-lg" id="_a">
-                    <h1 class="_a font-semibold text-7xl sm:text-9xl text-center text-amber-600">
-                        Makan Malam
-                    </h1>
-                    <h2 class="_a font-semibold text-6xl sm:text-8xl text-center text-amber-500">
-                        Bersama Mantan
-                    </h2>
-                    <img src="/baso.png" class="_a size-60" />
-                </section>
-                <section class="min-h-screen bg-white rounded-xl relative overflow-hidden p-10 __botol">
-                    <div class="sticky top-18 flex z-2">
-                        <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Tentang</h1>
-                    </div>
-                    <div class="absolute inset-0 flex justify-center items-center p-10 text-center _b1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
-                        repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
-                        reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
-                    </div>
-                </section>
-                <section class="min-h-screen bg-amber-100 rounded-xl relative overflow-hidden p-10 __profil">
-                    <div class="sticky top-18 flex z-2">
-                        <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Profil</h1>
-                    </div>
-                    <div class="absolute inset-0 flex justify-center items-center p-10 text-center z-1 _b2">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
-                        repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
-                        reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
-                    </div>
-                </section>
-                <section class="min-h-screen bg-white rounded-xl relative overflow-hidden p-10 mb-10 __kontak">
-                    <div class="sticky top-18 flex z-2">
-                        <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Kontak</h1>
-                    </div>
-                    <div class="absolute inset-0 flex justify-center items-center p-10 z-1 text-center _b3">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
-                        repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
-                        reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
-                    </div>
-                </section>
-            </main>
-        </UContainer>
+        <div class="overflow-hidden">
+            <UContainer>
+                <main class="text-lg pb-10 text-black">
+                    <section class="min-h-screen gap-2 flex justify-center items-center flex-col bg-amber-50 text-shadow-lg" id="_a">
+                        <h1 class="_a font-semibold text-7xl sm:text-9xl text-center text-amber-600">
+                            Makan Malam
+                        </h1>
+                        <h2 class="_a font-semibold text-6xl sm:text-8xl text-center text-amber-500">
+                            Bersama Mantan
+                        </h2>
+                        <img src="/baso.png" class="_a size-60" />
+                    </section>
+                    <section class="min-h-screen bg-white rounded-xl relative overflow-hidden p-10 __botol">
+                        <div class="sticky top-18 flex z-2">
+                            <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Tentang</h1>
+                        </div>
+                        <div class="absolute inset-0 flex justify-center items-center p-10 text-center _b1">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
+                            repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
+                            reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
+                        </div>
+                    </section>
+                    <section class="min-h-screen bg-amber-100 rounded-xl relative overflow-hidden p-10 __profil">
+                        <div class="sticky top-18 flex z-2">
+                            <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Profil</h1>
+                        </div>
+                        <div class="absolute inset-0 flex justify-center items-center p-10 text-center z-1 _b2">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
+                            repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
+                            reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
+                        </div>
+                    </section>
+                    <section class="min-h-screen bg-white rounded-xl relative overflow-hidden p-10 mb-10 __kontak">
+                        <div class="sticky top-18 flex z-2">
+                            <h1 class="text-xl font-semibold block bg-amber-600 text-white p-4">Kontak</h1>
+                        </div>
+                        <div class="absolute inset-0 flex justify-center items-center p-10 z-1 text-center _b3">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius quas laborum,
+                            repudiandae incidunt consequatur est repellendus dolore? Repudiandae necessitatibus amet
+                            reiciendis eaque, accusamus nostrum commodi nihil assumenda consectetur? Tempore!
+                        </div>
+                    </section>
+                </main>
+            </UContainer>
+        </div>
     </div>
 </template>
