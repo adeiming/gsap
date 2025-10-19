@@ -166,9 +166,8 @@ onMounted(async () => {
 <template>
     <div class="backdrop-blur-lg fixed inset-0 z-20 bg-white/10" v-if="loader"></div>
     <img src="/botol.png" class="_botol size-60 fixed invisible z-0 saturate-100" />
-    <div class="bg-amber-50 min-h-screen overflow-hidden">
-        <header
-            class="bg-amber-400/70 backdrop-blur flex gap-2 font-semibold text-amber-900 py-2 shadow-lg justify-between p-0 sm:px-10 top-0 z-10 sticky overflow-hidden">
+    <div class="bg-amber-50 min-h-screen">
+        <header class="bg-amber-400/70 backdrop-blur flex gap-2 font-semibold text-amber-900 py-2 shadow-lg justify-between p-0 sm:px-10 top-0 z-10 sticky">
             <div class="p-2 _logo">SOHO</div>
             <nav class="flex">
                 <a href="#" class="_link p-2">Tentang</a>
@@ -176,9 +175,9 @@ onMounted(async () => {
                 <a href="#" class="_link p-2">Kontak</a>
             </nav>
         </header>
-        <UContainer>
+        <UContainer class="overflow-hidden">
             <main class="text-lg pb-10 text-black">
-                <section class="min-h-screen gap-2 flex justify-center items-center flex-col bg-amber-50 text-shadow-lg overflow-hidden" id="_a">
+                <section class="min-h-screen gap-2 flex justify-center items-center flex-col bg-amber-50 text-shadow-lg" id="_a">
                     <h1 class="_a font-semibold text-7xl sm:text-9xl text-center text-amber-600">
                         Makan Malam
                     </h1>
